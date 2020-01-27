@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TodoDAO">
+
+	<select id="selectTodoList" resultType="egovMap">
+		SELECT TODO_ID,
+			TODO_CATEGORY,
+			TODO_REGISTER,
+			TODO_TITLE,
+			TODO_DONE,
+			TODO_DESC
+		FROM TODO
+	</select>
+	
+	<select id="selectTodo" parameterType="biz.todo.service.TodoVO" resultType="biz.todo.service.TodoVO">
+		SELECT TODO_ID,
+			TODO_CATEGORY,
+			TODO_REGISTER,
+			TODO_TITLE,
+			TODO_DONE,
+			TODO_DESC
+		FROM TODO
+	<![CDATA[
+		WHERE TODO_ID = #{todoId}
+	]]>
+	</select>
+	
+	<insert id="insertTodo">
+		INSERT INTO TODO(
+			TODO_ID,
+			TODO_CATEGORY,
+			TODO_REGISTER,
+			TODO_TITLE,
+			TODO_DONE,
+			TODO_DESC
+		)
+	<![CDATA[
+		VALUES (
+			#{todoId},
+			#{todoCategory},
+			#{todoRegister},
+			#{todoTitle},
+			'N',
+			#{todoDesc}
+		)
+	]]>
+	</insert>
+	
+	<delete id="deleteTodo">
+		DELETE FROM TODO
+	<![CDATA[
+		WHERE TODO_ID = #{todoId}
+	]]>
+	</delete>
+
+</mapper>
