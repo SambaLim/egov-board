@@ -29,6 +29,7 @@ public class TodoController {
 		List<?> todoList = todoService.selectTodoList();
 		model.addAttribute("todoList", todoList);
 		
+		// TODO: 타이틀 메시지 처리
 		// TODO: 코드데이터 바인딩
 		
 		return "biz/todo/TodoList";
