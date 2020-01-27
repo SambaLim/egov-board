@@ -30,7 +30,6 @@ public class TodoController {
 		model.addAttribute("todoList", todoList);
 		
 		// TODO: 타이틀 메시지 처리
-		// TODO: 코드데이터 바인딩
 		
 		return "biz/todo/TodoList";
 	}
@@ -51,6 +50,8 @@ public class TodoController {
 		
 		LoginVO user = (LoginVO) EgovUserDetailsHelper.getAuthenticatedUser();
 		model.addAttribute("userId", user.getId());
+		
+		// TODO: 코드데이터 바인딩
 		
 		return "biz/todo/TodoIns";
 	}
