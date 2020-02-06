@@ -11,7 +11,7 @@ public class KakaoServiceImpl implements NotificationService {
 	public boolean sendNotification(String phoneNumber, String message) {
 		
 		System.out.println("Trying to send message via Kakao. phoneNumber: " + phoneNumber);
-        System.out.println("Success to send message");
+        System.out.println(message);
 		
 		return true;
 	}
